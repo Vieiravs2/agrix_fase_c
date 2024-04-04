@@ -29,7 +29,7 @@ public class PersonController {
   @PostMapping("/persons")
   public ResponseEntity<PersonDto.ToResponse> createPerson(@RequestBody PersonDto personDto) {
     Person toPerson = personDto.toPerson();
-    Person createPerson = personService.create(toPerson);
+    Person createPerson = personService.createPerson(toPerson);
     return ResponseEntity.status(HttpStatus.CREATED).body(
       PersonDto.ToResponse.fromEntity(createPerson)
     );

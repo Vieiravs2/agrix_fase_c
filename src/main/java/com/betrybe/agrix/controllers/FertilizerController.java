@@ -29,7 +29,7 @@ public class FertilizerController {
   }
 
   /**
-   * Método createFertilizer.
+   * Create a new Fertilizer.
    */
   @PostMapping("/fertilizers")
   public ResponseEntity<?> createFertilizer(@RequestBody FertilizerDto fertilizerDto) {
@@ -44,7 +44,7 @@ public class FertilizerController {
   }
 
   /**
-  * Método getAllFertilizers.
+  * Get All Fertilizers.
   */
   @GetMapping("/fertilizers")
   public ResponseEntity<List<Fertilizer>> getAllFertilizers() {
@@ -58,7 +58,7 @@ public class FertilizerController {
   }
 
   /**
-  * Método getById.
+  * Get Fertilizer By Id.
   */
   @GetMapping("/fertilizers/{id}")
   public ResponseEntity<?> getById(@PathVariable Long id) {

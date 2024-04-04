@@ -27,7 +27,7 @@ public class SecurityConfiguration {
       return manager;
     }
       
-    throw new IllegalStateException("Incorrect configuration");
+    throw new IllegalStateException("Configuração incorreta!");
   }
 
   /**

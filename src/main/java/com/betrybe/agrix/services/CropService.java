@@ -15,14 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CropService {
   private final CropRepository cropRepository;
-  private final FarmRepository farmRepository;
 
   /**
    * Constructs a new CropService with the specified CropRepository.
    */
   public CropService(CropRepository cropRepository, FarmRepository farmRepository) {
     this.cropRepository = cropRepository;
-    this.farmRepository = farmRepository;
   }
 
   /**

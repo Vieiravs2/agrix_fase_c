@@ -19,18 +19,16 @@ import org.springframework.stereotype.Service;
 public class PersonService implements UserDetailsService {
 
   private final PersonRepository personRepository;
-  private final PasswordEncoder passwordEncoder;
 
   public PersonService(
       PersonRepository personRepository, PasswordEncoder passwordEncoder) {
     this.personRepository = personRepository;
-    this.passwordEncoder = passwordEncoder;
   }
 
   /**
   * Inserts a new person.
   */
-  public Person insert(Person person) {
+  public Person createPerson(Person person) {
     String encryptedPassword = new BCryptPasswordEncoder().encode(person.getPassword());
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -65,20 +63,5 @@ public class PersonService implements UserDetailsService {
     }
 
     return personRepository.findByUsername(username);
-  }
-
-  /**
-  * Creates a new person.
-  */
-  public Person create(Person person) {
-
-    if (person.getPassword() == null || person.getPassword().isEmpty()) {
-      throw new FarmNotFoundException("Senha não pode ser vazia!");
-    }
-
-    String personPassword = person.getPassword();
-    String encodedPersonPassword = passwordEncoder.encode(personPassword);
-    person.setPassword(encodedPersonPassword);
-    return personRepository.save(person);
   }
 }
